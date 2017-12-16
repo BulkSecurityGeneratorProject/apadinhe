@@ -1,0 +1,25 @@
+{
+    "apadinheApp": {
+        "apadinhamento" : {
+            "home": {
+                "title": "Apadinhamentos",
+                "createLabel": "Criar novo Apadrinhamento",
+                "createOrEditLabel": "Criar ou editar Apadrinhamento",
+                "search": "Pesquisar por Apadrinhamento"
+            },
+            "created": "Um novo Apadrinhamento foi criado com o identificador {{ param }}",
+            "updated": "Um Apadrinhamento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Apadrinhamento foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Apadrinhamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Apadinhamento"
+            },
+            "observacao": "Observação",
+            "processo": "Processo",
+            "padrinho": "Padrinho",
+            "crianca": "Criança"
+        }
+    }
+}

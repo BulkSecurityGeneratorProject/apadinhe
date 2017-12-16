@@ -1,0 +1,25 @@
+{
+    "apadinheApp": {
+        "doacao" : {
+            "home": {
+                "title": "Doacaos",
+                "createLabel": "Criar novo Doacao",
+                "createOrEditLabel": "Criar ou editar Doacao",
+                "search": "Pesquisar por Doacao"
+            },
+            "created": "Um novo Doacao foi criado com o identificador {{ param }}",
+            "updated": "Um Doacao foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Doacao foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Doacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Doacao"
+            },
+            "comprovante": "Comprovante",
+            "valor": "Valor",
+            "ong": "Ong",
+            "doador": "Doador"
+        }
+    }
+}

@@ -1,0 +1,60 @@
+entity Ong{
+	nome String required
+    requisitosApadrinhamento String
+	conta String required,
+    agencia String required,
+    banco Banco required,
+    email String required,
+    telefone String required
+}
+
+enum Banco{
+	BB, CAIXA, BRADESCO, SANTANDER
+}
+
+entity Apadinhamento{
+	observacao String
+}
+
+entity ProcessoApadinhamento{
+	situacao ProcessoApadinhamentoSituacao required,
+    texto String required
+}
+
+enum ProcessoApadinhamentoSituacao{
+	ABERTO, ANALISE, REJEITADO, ACEITO
+}
+
+entity Visita{
+	data ZonedDateTime required
+}
+
+entity Doacao{
+	comprovante String,
+	valor Double required
+}
+
+entity Crianca{
+	nome String required,
+  	dataNascimento LocalDate required,
+    preferencia String required
+}
+
+relationship OneToOne{
+    Apadinhamento{processo} to ProcessoApadinhamento
+}
+
+relationship ManyToMany{
+    Apadinhamento{padrinho(firstName) required} to User,
+    Apadinhamento{crianca(nome) required} to Crianca,
+    ProcessoApadinhamento{padrinho(firstName) required} to User,
+    ProcessoApadinhamento{crianca(nome) required} to Crianca
+}
+
+relationship ManyToOne{
+	Crianca{ong(nome) required} to Ong,
+    Visita{crianca(nome) required} to Crianca,
+    Doacao{ong(nome) required} to Ong,
+    Visita{padrinho(firstName) required} to User,
+    Doacao{doador(firstName) required} to User
+}

@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="apadinheApp.apadinhamento.home.title">Apadinhamentos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-apadinhamento" [routerLink]="['/', { outlets: { popup: ['apadinhamento-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="apadinheApp.apadinhamento.home.createLabel">
+            Create new Apadinhamento
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'apadinheApp.apadinhamento.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="apadinhamentos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="apadinheApp.apadinhamento.processo">Processo</span></th>
+            <th><span jhiTranslate="apadinheApp.apadinhamento.padrinho">Padrinho</span></th>
+            <th><span jhiTranslate="apadinheApp.apadinhamento.crianca">Crianca</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let apadinhamento of apadinhamentos ;trackBy: trackId">
+                <td><a [routerLink]="['../apadinhamento', apadinhamento.id ]">{{apadinhamento.id}}</a></td>
+                <td>{{apadinhamento.observacao}}</td>
+                <td>
+                    <div *ngIf="apadinhamento.processo">
+                        <a [routerLink]="['../processo-apadinhamento', apadinhamento.processo?.id ]" >{{apadinhamento.processo?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let padrinho of apadinhamento.padrinhos; let last = last">
+                            {{padrinho.firstName}}{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let crianca of apadinhamento.criancas; let last = last">
+                            <a class="form-control-static" [routerLink]="['../crianca', crianca?.id ]">{{crianca.nome}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../apadinhamento', apadinhamento.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'apadinhamento/'+ apadinhamento.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'apadinhamento/'+ apadinhamento.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

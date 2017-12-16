@@ -1,0 +1,39 @@
+
+<div *ngIf="crianca">
+    <h2><span jhiTranslate="apadinheApp.crianca.detail.title">Crianca</span> {{crianca.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apadinheApp.crianca.nome">Nome</span></dt>
+        <dd>
+            <span>{{crianca.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.crianca.dataNascimento">Data Nascimento</span></dt>
+        <dd>
+            <span>{{crianca.dataNascimento | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.crianca.preferencia">Preferencia</span></dt>
+        <dd>
+            <span>{{crianca.preferencia}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.crianca.ong">Ong</span></dt>
+        <dd>
+            <div *ngIf="crianca.ong">
+                <a [routerLink]="['/ong', crianca.ong?.id]">{{crianca.ong?.nome}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'crianca/'+ crianca.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

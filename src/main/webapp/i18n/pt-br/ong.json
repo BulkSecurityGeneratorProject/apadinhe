@@ -1,0 +1,28 @@
+{
+    "apadinheApp": {
+        "ong" : {
+            "home": {
+                "title": "Ongs",
+                "createLabel": "Criar nova Ong",
+                "createOrEditLabel": "Criar ou editar Ong",
+                "search": "Pesquisar por Ong"
+            },
+            "created": "Um novo Ong foi criado com o identificador {{ param }}",
+            "updated": "Um Ong foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Ong foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Ong {{ id }}?"
+            },
+            "detail": {
+                "title": "Ong"
+            },
+            "nome": "Nome",
+            "requisitosApadrinhamento": "Requisitos Apadrinhamento",
+            "conta": "Conta",
+            "agencia": "Agencia",
+            "banco": "Banco",
+            "email": "Email",
+            "telefone": "Telefone"
+        }
+    }
+}

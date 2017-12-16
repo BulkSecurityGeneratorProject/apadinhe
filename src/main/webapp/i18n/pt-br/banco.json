@@ -1,0 +1,11 @@
+{
+    "apadinheApp": {
+        "Banco" : {
+            "null": "",
+            "BB": "BB",
+            "CAIXA": "CAIXA",
+            "BRADESCO": "BRADESCO",
+            "SANTANDER": "SANTANDER"
+        }
+    }
+}

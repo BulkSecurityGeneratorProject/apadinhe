@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "padrinho",
+            "otherEntityName": "user",
+            "otherEntityField": "firstName",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "crianca",
+            "otherEntityName": "crianca",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "situacao",
+            "fieldType": "ProcessoApadinhamentoSituacao",
+            "fieldValues": "ABERTO,ANALISE,REJEITADO,ACEITO",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "texto",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171216040152",
+    "entityTableName": "processo_apadinhamento",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

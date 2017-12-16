@@ -1,0 +1,35 @@
+
+<div *ngIf="visita">
+    <h2><span jhiTranslate="apadinheApp.visita.detail.title">Visita</span> {{visita.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apadinheApp.visita.data">Data</span></dt>
+        <dd>
+            <span>{{visita.data | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.visita.crianca">Crianca</span></dt>
+        <dd>
+            <div *ngIf="visita.crianca">
+                <a [routerLink]="['/crianca', visita.crianca?.id]">{{visita.crianca?.nome}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.visita.padrinho">Padrinho</span></dt>
+        <dd>
+            {{visita.padrinho?.firstName}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'visita/'+ visita.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

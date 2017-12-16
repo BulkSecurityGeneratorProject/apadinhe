@@ -1,0 +1,25 @@
+{
+    "apadinheApp": {
+        "crianca" : {
+            "home": {
+                "title": "Crianças",
+                "createLabel": "Criar novo Criança",
+                "createOrEditLabel": "Criar ou editar Criança",
+                "search": "Pesquisar por Criança"
+            },
+            "created": "Um novo Criança foi criado com o identificador {{ param }}",
+            "updated": "Um Criança foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Criança foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Criança {{ id }}?"
+            },
+            "detail": {
+                "title": "Criança"
+            },
+            "nome": "Nome",
+            "dataNascimento": "Data Nascimento",
+            "preferencia": "Preferencia",
+            "ong": "Ong"
+        }
+    }
+}

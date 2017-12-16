@@ -1,0 +1,39 @@
+
+<div *ngIf="doacao">
+    <h2><span jhiTranslate="apadinheApp.doacao.detail.title">Doacao</span> {{doacao.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apadinheApp.doacao.comprovante">Comprovante</span></dt>
+        <dd>
+            <span>{{doacao.comprovante}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.doacao.valor">Valor</span></dt>
+        <dd>
+            <span>{{doacao.valor}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.doacao.ong">Ong</span></dt>
+        <dd>
+            <div *ngIf="doacao.ong">
+                <a [routerLink]="['/ong', doacao.ong?.id]">{{doacao.ong?.nome}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.doacao.doador">Doador</span></dt>
+        <dd>
+            {{doacao.doador?.firstName}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'doacao/'+ doacao.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

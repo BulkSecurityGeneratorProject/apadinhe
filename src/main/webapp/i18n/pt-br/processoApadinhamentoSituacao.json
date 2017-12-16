@@ -1,0 +1,11 @@
+{
+    "apadinheApp": {
+        "ProcessoApadinhamentoSituacao" : {
+            "null": "",
+            "ABERTO": "ABERTO",
+            "ANALISE": "ANALISE",
+            "REJEITADO": "REJEITADO",
+            "ACEITO": "ACEITO"
+        }
+    }
+}

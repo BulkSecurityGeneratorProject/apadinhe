@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "processo",
+            "otherEntityName": "processoApadinhamento",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "apadinhamento"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "padrinho",
+            "otherEntityName": "user",
+            "otherEntityField": "firstName",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "crianca",
+            "otherEntityName": "crianca",
+            "otherEntityField": "nome",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "observacao",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171216040151",
+    "entityTableName": "apadinhamento",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

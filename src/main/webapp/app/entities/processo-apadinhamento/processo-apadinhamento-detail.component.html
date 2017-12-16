@@ -1,0 +1,41 @@
+
+<div *ngIf="processoApadinhamento">
+    <h2><span jhiTranslate="apadinheApp.processoApadinhamento.detail.title">Processo Apadinhamento</span> {{processoApadinhamento.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apadinheApp.processoApadinhamento.situacao">Situacao</span></dt>
+        <dd>
+            <span jhiTranslate="{{'apadinheApp.ProcessoApadinhamentoSituacao.' + processoApadinhamento.situacao}}">{{processoApadinhamento.situacao}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.processoApadinhamento.texto">Texto</span></dt>
+        <dd>
+            <span>{{processoApadinhamento.texto}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.processoApadinhamento.padrinho">Padrinho</span></dt>
+        <dd>
+            <span *ngFor="let padrinho of processoApadinhamento.padrinhos; let last = last">
+                {{padrinho.firstName}}{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.processoApadinhamento.crianca">Crianca</span></dt>
+        <dd>
+            <span *ngFor="let crianca of processoApadinhamento.criancas; let last = last">
+                <a [routerLink]="['/crianca', crianca?.id ]">{{crianca.nome}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'processo-apadinhamento/'+ processoApadinhamento.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

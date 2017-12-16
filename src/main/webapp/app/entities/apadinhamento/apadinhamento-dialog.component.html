@@ -1,0 +1,61 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myApadinhamentoLabel" jhiTranslate="apadinheApp.apadinhamento.home.createOrEditLabel">Create or edit a Apadinhamento</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!apadinhamento.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="apadinhamento.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="apadinheApp.apadinhamento.observacao" for="field_observacao">Observacao</label>
+            <input type="text" class="form-control" name="observacao" id="field_observacao"
+                [(ngModel)]="apadinhamento.observacao"  />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="apadinheApp.apadinhamento.processo" for="field_processo">Processo</label>
+            <select class="form-control" id="field_processo" name="processo" [(ngModel)]="apadinhamento.processo">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="processoApadinhamentoOption.id === apadinhamento.processo?.id ? apadinhamento.processo : processoApadinhamentoOption" *ngFor="let processoApadinhamentoOption of processos; trackBy: trackProcessoApadinhamentoById">{{processoApadinhamentoOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="apadinheApp.apadinhamento.padrinho" for="field_padrinho">Padrinho</label>
+            <select class="form-control" id="field_padrinho" multiple name="padrinho" [(ngModel)]="apadinhamento.padrinhos" required>
+                <option [ngValue]="getSelected(apadinhamento.padrinhos, userOption)" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.firstName}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.padrinho?.dirty && editForm.controls.padrinho?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.padrinho?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="apadinheApp.apadinhamento.crianca" for="field_crianca">Crianca</label>
+            <select class="form-control" id="field_crianca" multiple name="crianca" [(ngModel)]="apadinhamento.criancas" required>
+                <option [ngValue]="getSelected(apadinhamento.criancas, criancaOption)" *ngFor="let criancaOption of criancas; trackBy: trackCriancaById">{{criancaOption.nome}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.crianca?.dirty && editForm.controls.crianca?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.crianca?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

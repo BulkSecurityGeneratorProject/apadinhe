@@ -1,0 +1,19 @@
+{
+    "home": {
+        "title": "Bem vindo, Apadinhe+!",
+        "subtitle": "Esta é  a página principal",
+        "logged": {
+            "message": "Você está logado como \"{{username}}\"."
+        },
+        "question": "Em caso de dúvida:",
+        "link": {
+            "homepage": "homepage",
+            "stackoverflow": "Stack Overflow",
+            "bugtracker": "Bug tracker",
+            "chat": "Public chat room",
+            "follow": "contate"
+        },
+        "like": "Se você gosta, não se esqueça de avaliar no",
+        "github": "GitHub"
+    }
+}

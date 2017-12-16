@@ -1,0 +1,25 @@
+{
+    "apadinheApp": {
+        "processoApadinhamento" : {
+            "home": {
+                "title": "Processo Apadrinhamentos",
+                "createLabel": "Criar novo Processo Apadrinhamento",
+                "createOrEditLabel": "Criar ou editar Processo Apadrinhamento",
+                "search": "Pesquisar por Processo Apadrinhamento"
+            },
+            "created": "Um novo Processo Apadrinhamento foi criado com o identificador {{ param }}",
+            "updated": "Um Processo Apadrinhamento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Processo Apadrinhamento foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Processo Apadrinhamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Processo Apadrinhamento"
+            },
+            "situacao": "Situação",
+            "texto": "Texto",
+            "padrinho": "Padrinho",
+            "crianca": "Criança"
+        }
+    }
+}

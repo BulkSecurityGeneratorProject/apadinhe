@@ -1,0 +1,100 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myOngLabel" jhiTranslate="apadinheApp.ong.home.createOrEditLabel">Create or edit a Ong</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!ong.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="ong.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="apadinheApp.ong.nome" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome"
+                [(ngModel)]="ong.nome" required />
+            <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="apadinheApp.ong.requisitosApadrinhamento" for="field_requisitosApadrinhamento">Requisitos Apadrinhamento</label>
+            <input type="text" class="form-control" name="requisitosApadrinhamento" id="field_requisitosApadrinhamento"
+                [(ngModel)]="ong.requisitosApadrinhamento"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="apadinheApp.ong.conta" for="field_conta">Conta</label>
+            <input type="text" class="form-control" name="conta" id="field_conta"
+                [(ngModel)]="ong.conta" required />
+            <div [hidden]="!(editForm.controls.conta?.dirty && editForm.controls.conta?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.conta?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="apadinheApp.ong.agencia" for="field_agencia">Agencia</label>
+            <input type="text" class="form-control" name="agencia" id="field_agencia"
+                [(ngModel)]="ong.agencia" required />
+            <div [hidden]="!(editForm.controls.agencia?.dirty && editForm.controls.agencia?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.agencia?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="apadinheApp.ong.banco" for="field_banco">Banco</label>
+            <select class="form-control" name="banco" [(ngModel)]="ong.banco" id="field_banco"  required>
+                <option value="BB">{{'apadinheApp.Banco.BB' | translate}}</option>
+                <option value="CAIXA">{{'apadinheApp.Banco.CAIXA' | translate}}</option>
+                <option value="BRADESCO">{{'apadinheApp.Banco.BRADESCO' | translate}}</option>
+                <option value="SANTANDER">{{'apadinheApp.Banco.SANTANDER' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.banco?.dirty && editForm.controls.banco?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.banco?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="apadinheApp.ong.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="ong.email" required />
+            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="apadinheApp.ong.telefone" for="field_telefone">Telefone</label>
+            <input type="text" class="form-control" name="telefone" id="field_telefone"
+                [(ngModel)]="ong.telefone" required />
+            <div [hidden]="!(editForm.controls.telefone?.dirty && editForm.controls.telefone?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.telefone?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

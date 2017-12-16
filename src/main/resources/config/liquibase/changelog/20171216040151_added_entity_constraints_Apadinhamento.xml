@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Apadinhamento.
+    -->
+    <changeSet id="20171216040151-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="processo_id"
+                                 baseTableName="apadinhamento"
+                                 constraintName="fk_apadinhamento_processo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="processo_apadinhamento"/>
+
+        <addForeignKeyConstraint baseColumnNames="apadinhamentos_id"
+                                 baseTableName="apadinhamento_padrinho"
+                                 constraintName="fk_apadinhamento_padrinho_apadinhamentos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="apadinhamento"/>
+        <addForeignKeyConstraint baseColumnNames="padrinhos_id"
+                                 baseTableName="apadinhamento_padrinho"
+                                 constraintName="fk_apadinhamento_padrinho_padrinhos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+        <addForeignKeyConstraint baseColumnNames="apadinhamentos_id"
+                                 baseTableName="apadinhamento_crianca"
+                                 constraintName="fk_apadinhamento_crianca_apadinhamentos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="apadinhamento"/>
+        <addForeignKeyConstraint baseColumnNames="criancas_id"
+                                 baseTableName="apadinhamento_crianca"
+                                 constraintName="fk_apadinhamento_crianca_criancas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="crianca"/>
+        
+    </changeSet>
+</databaseChangeLog>

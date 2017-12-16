@@ -1,0 +1,49 @@
+
+<div *ngIf="ong">
+    <h2><span jhiTranslate="apadinheApp.ong.detail.title">Ong</span> {{ong.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apadinheApp.ong.nome">Nome</span></dt>
+        <dd>
+            <span>{{ong.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.ong.requisitosApadrinhamento">Requisitos Apadrinhamento</span></dt>
+        <dd>
+            <span>{{ong.requisitosApadrinhamento}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.ong.conta">Conta</span></dt>
+        <dd>
+            <span>{{ong.conta}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.ong.agencia">Agencia</span></dt>
+        <dd>
+            <span>{{ong.agencia}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.ong.banco">Banco</span></dt>
+        <dd>
+            <span jhiTranslate="{{'apadinheApp.Banco.' + ong.banco}}">{{ong.banco}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.ong.email">Email</span></dt>
+        <dd>
+            <span>{{ong.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="apadinheApp.ong.telefone">Telefone</span></dt>
+        <dd>
+            <span>{{ong.telefone}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ong/'+ ong.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
