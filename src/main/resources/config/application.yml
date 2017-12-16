@@ -49,7 +49,7 @@ spring:
         # see https://developers.google.com/+/web/signin/server-side-flow#step_1_create_a_client_id_and_client_secret
         google:
             client-id: 678818089444-8pbsb4vc6mddkng1nd7ctkvitdeteep7.apps.googleusercontent.com
-            client-secret: duyqmrliWFYLkjxC4WcL8YP
+            client-secret: duyqmrliWFYLkjxC4WcL8YP7
 
         # see https://developers.facebook.com/docs/facebook-login/v2.2
         facebook:
